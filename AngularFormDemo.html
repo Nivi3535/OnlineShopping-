@@ -1,0 +1,430 @@
+﻿<!doctype html>
+<html>
+   <head>
+      <script src = "scripts/angular.min.js"></script>
+      <script src = "scripts/angular-route.min.js"></script>
+      <script src = "scripts/app.js"></script>
+      <script src = "scripts/controller.js"></script>
+       <script src="scripts/directives.js"></script>
+       <script src="scripts/services.js"></script>
+       <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+       <script src="jquery3.3.1/jquery.min.js"></script>
+       <script src="bootstrap/bootstrap.min.js"></script>
+       <style>
+           .vertical-menu {
+    width: 200px; /* Set a width if you like */
+}
+
+.vertical-menu a {
+    background-color: #eee; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    color: white;
+}
+      /*  body {
+               background: #fff;
+               color: #505050;
+               font: 14px 'Segoe UI', tahoma, arial, helvetica, sans-serif;
+               margin: 20px;
+               padding: 0;
+           }
+
+           #header {
+               background: #efefef;
+               padding: 0;
+           }
+
+           h1 {
+               font-size: 48px;
+               font-weight: normal;
+               margin: 0;
+               padding: 0 30px;
+               line-height: 150px;
+           }
+
+           p {
+               font-size: 20px;
+               color: #fff;
+               background: #969696;
+               padding: 0 30px;
+               line-height: 50px;
+           }
+
+           #main {
+               padding: 5px 30px;
+           }
+
+           .section {
+               width: 21.7%;
+               float: left;
+               margin: 0 0 0 4%;
+           }
+
+               .section h2 {
+                   font-size: 13px;
+                   text-transform: uppercase;
+                   margin: 0;
+                   border-bottom: 1px solid silver;
+                   padding-bottom: 12px;
+                   margin-bottom: 8px;
+               }
+
+               .section.first {
+                   margin-left: 0;
+               }
+
+                   .section.first h2 {
+                       font-size: 24px;
+                       text-transform: none;
+                       margin-bottom: 25px;
+                       border: none;
+                   }
+
+                   .section.first li {
+                       border-top: 1px solid silver;
+                       padding: 8px 0;
+                   }
+
+               .section.last {
+                   margin-right: 0;
+               }
+
+           ul {
+               list-style: none;
+               padding: 0;
+               margin: 0;
+               line-height: 20px;
+           }
+
+           li {
+               padding: 4px 0;
+           }
+
+           a {
+               color: #267cb2;
+               text-decoration: none;
+           }
+
+               a:hover {
+                   text-decoration: underline;
+               }
+               */
+      .navbar{
+    width:75% !important;
+    margin:0px auto;
+    left:0;
+    right:0;
+    padding:0;
+}
+
+
+      /* make sidebar nav vertical */ 
+@media (min-width: 768px) {
+  .sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+  }
+  .sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li {
+    float: none;
+    display: block;
+  }
+  .sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
+
+/* CSS */
+
+.toggle-custom {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+}
+.toggle-custom[aria-expanded='true'] .glyphicon-plus:before {
+  content: "\2212";
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: visible;
+  overflow-y: scroll;
+}
+
+.dropdown-submenu{position:relative;}
+.dropdown-submenu>.dropdown-menu{top:0;left:100%;margin-top:-6px;margin-left:-1px;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu:hover>.dropdown-menu{display:block;}
+.dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+.dropdown-submenu:hover>a:after{border-left-color:#ffffff;}
+.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
+       </style>
+
+       <script>
+           function hidemenu()
+           {
+               document.getElementById("vertical-menu").style.display = "none";
+           }
+           function a()
+           {
+               document.getElementById('div1').innerHTML = new Date();
+           }
+       </script>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+
+<body onload="a()" ng-app="AngularFormDemo2" ng-controller="MainController">
+    <center>
+        <h5 style="margin-top:5px;" class="text-center text-info"> Online Shopping Demo </h5>
+        <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="1000" height="100">
+            <param name="movie" value="homepagemiddle.swf" />
+            <param name="quality" value="high" />
+            <embed src="homepagemiddle.swf"
+                   quality="high"
+                   type="application/x-shockwave-flash"
+                   width="1000"
+                   height="100"
+                   pluginspage="http://www.macromedia.com/go/getflashplayer" />
+        </object>
+    </center>
+
+
+    <h2>hello</h2>
+    my:  {{message}}
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Scrollable Menu <span class="caret"></span></button>
+        <ul class="dropdown-menu scrollable-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li class="dropdown-submenu">
+                <a href="#">Submenu</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action 1</a></li>
+                    <li><a href="#">Action 2</a></li>
+                    <li><a href="#">Action 3</a></li>
+                    <li><a href="#">Action 4</a></li>
+                    <li><a href="#">Action 5</a></li>
+                    <li><a href="#">Action 7</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li class="dropdown-submenu">
+                <a href="#">Submenu</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action 1</a></li>
+                    <li><a href="#">Action 2</a></li>
+                    <li><a href="#">Action 3</a></li>
+                    <li><a href="#">Action 4</a></li>
+                    <li><a href="#">Action 5</a></li>
+                    <li><a href="#">Action 7</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <nav role="navigation" style="width:400px" class="navbar navbar-inverse">
+        <div class="container" style="text-align:left">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Welcome</a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#/Home">Home</a></li>
+                <li class="active"><a href="#/AdminLogin">Admin Login</a></li>
+                <li class="active"><a href="#/UserLogin">User Login</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Employee<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/AddEmployee">Add Employee</a></li>
+                        <li><a href="#/EmpList">List Employees</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Category<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/AddCategory">Add Category</a></li>
+                        <li><a href="#/CategoryList">List Categories</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Item<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/AddItem">Add Item</a></li>
+                        <li><a href="#/ItemList">List Items</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Users<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/AddUser">Add User</a></li>
+                        <li><a href="#/UserList">List Users</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Customer Payment<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/AddCustomerPayment">Add Payment</a></li>
+                        <li><a href="#/CustomerPaymentList">List Payments</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Shopping Cart<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/AddShoppingCart">Add to Cart</a></li>
+                        <li><a href="#/CustomerPaymentList">List Payments</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+    <a href="#/AddEmployee">
+        Add
+    </a>
+    <a href="#/EmpList">
+        View
+    </a>
+    <div class="row">
+        <div class="col-lg-2">
+            <div id="vertical-menu" class="vertical-menu">
+                <a href="#" class="active">Home</a>
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                <a href="#/AdminLogin" onclick="toggleleftmenu()">Signout</a>
+            </div>
+
+        </div>
+        <div class="col-lg-8">
+            <div ng-view>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="col-lg-2"></div>
+    <div id="header">
+        <h1>Your Online Shopping Experience starts here</h1>
+        <p>Congratulations! You are nth customer.</p>
+    </div>
+
+    <div id="main">
+        <div class="section first">
+            <video width="320" height="240" controls>
+                <source src="movie.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <br />
+
+            <h2>This application consists of:</h2>
+            <ul>
+                <li>Sample pages showing basic nav between Home, About, and Contact</li>
+                <li><a href="#/EmpList">View Emp List</a></li>
+                <li>ASP.NET features managed using <a href="http://go.microsoft.com/fwlink/?LinkID=320756">NuGet</a></li>
+            </ul>
+        </div>
+
+
+        <div class="section last">
+            <h2>Get help</h2>
+            <ul>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=615537">Get help</a></li>
+                <li><a href="http://go.microsoft.com/fwlink/?LinkID=615538">Get more templates</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="div1">
+
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="sidebar-nav">
+                    <div class="navbar navbar-default" role="navigation">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar">fdf</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>sdfsdf
+                            </button>
+                            <span class="visible-xs navbar-brand">Sidebar menu</span>
+                        </div>
+                        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Menu Item 1</a></li>
+                                <li><a href="#/AdminLogin">Admin Login</a></li>
+                                <li><a href="#">Menu Item 3</a></li>
+                                <li><a href="#/AdminLogin">Signout</a></li>
+                                <li><a href="#">Reviews <span class="badge">1,118</span></a></li>
+                            </ul>
+                        </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                Main content goes here
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <nav>
+                    <ul class="nav">
+                        <li>
+                            <a href="#">Link 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Link 2</a><a href="#" class="toggle-custom" id="btn-1" data-toggle="collapse" data-target="#submenu1" aria-expanded="false"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                            <ul class="nav collapse" id="submenu1" role="menu" aria-labelledby="btn-1">
+                                <li>
+                                    <a href="#">Link 2.1</a>
+                                </li>
+                                <li>
+                                    <a href="#">Link 2.2</a>
+                                </li>
+                                <li>
+                                    <a href="#">Link 2.3</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Link 3</a>
+                        </li>
+                    </ul>
+                </nav>
+                </div></div></div>
+
+
+    <br/>
+    
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html>
+<head>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller.js"></script>
+    <script src="scripts/directives.js"></script>
+    <script src="scripts/services.js"></script>
+    <script src="scripts/jquery-1.10.2.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+</head>
+<body ng-app="AngularFormDemo2" ng-controller="AddController">
+    <h2>hello</h2>
+    my:  {{message}}
+    <div class="container">
+        <nav role="navigation" class="navbar navbar-inverse">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#/Home" >Home</a></li>
+              
+                <li class="list-group-item"><a href="#/Edit">Edit</a></li>
+                <li class="list-group-item"><a href="#/Delete">Delete</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div ng-view>
+    </div>
+  
+</body>
+</html>
